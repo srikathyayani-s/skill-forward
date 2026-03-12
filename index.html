@@ -378,6 +378,106 @@
     .footgrid {
       display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;
     }
+
+    /* Timeline */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+      margin-top: 4px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: var(--border);
+    }
+    .tl-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 14px 0;
+    }
+    .tl-dot {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      background: var(--card2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: rgba(255,255,255,0.75);
+      position: relative;
+      z-index: 1;
+    }
+    .tl-body { flex: 1; padding-top: 8px; }
+    .tl-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+    .tl-title {
+      font-weight: 700;
+      font-size: 15px;
+      margin: 0 0 4px;
+    }
+    .tl-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      margin: 0;
+    }
+
+    /* Eligibility */
+    .elig-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    @media (max-width: 700px) {
+      .elig-grid { grid-template-columns: 1fr; }
+    }
+    .elig-card {
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px;
+    }
+    .elig-card h3 {
+      margin: 0 0 12px;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .elig-card ul {
+      margin: 0 0 0 16px;
+      padding: 0;
+    }
+    .elig-card li {
+      font-size: 14px;
+      color: rgba(255,255,255,0.82);
+      margin: 7px 0;
+    }
+    .elig-note {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: rgba(59,130,246,0.10);
+      border: 1px solid rgba(59,130,246,0.25);
+      font-size: 13px;
+      color: rgba(255,255,255,0.80);
+    }
   </style>
 </head>
 <body>
@@ -394,6 +494,8 @@
         <a class="pill" href="#ramp">Ramp</a>
         <a class="pill" href="#bootcamps">Bootcamps</a>
         <a class="pill" href="#how">Structure</a>
+        <a class="pill" href="#timeline">Timeline</a>
+        <a class="pill" href="#eligibility">Eligibility</a>
         <a class="pill" href="#contact">Contact</a>
       </nav>
     </div>
@@ -616,6 +718,102 @@
             <li>Portfolio-ready artifacts</li>
             <li>Mentorship and accountability</li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="timeline">
+    <div class="container">
+      <div class="section-title">
+        <h2>Program Timeline</h2>
+        <div class="hint">From application to deployment — here's how the journey unfolds.</div>
+      </div>
+
+      <div class="card">
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot">01</div>
+            <div class="tl-body">
+              <div class="tl-label">Rolling · Open Now</div>
+              <p class="tl-title">Applications Open</p>
+              <p class="tl-desc">Submit your application via the Google Form. Applications are reviewed on a rolling basis — apply early for best placement.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot">02</div>
+            <div class="tl-body">
+              <div class="tl-label">Within 1 week of applying</div>
+              <p class="tl-title">Selection &amp; Onboarding</p>
+              <p class="tl-desc">Selected participants receive a welcome email with onboarding materials, tool setup instructions, and cohort details.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot">03</div>
+            <div class="tl-body">
+              <div class="tl-label">Week 1</div>
+              <p class="tl-title">Kickoff &amp; Problem Framing</p>
+              <p class="tl-desc">Live session: introductions, frameworks, picking your problem. You'll leave with a defined use-case and an initial plan.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot">04</div>
+            <div class="tl-body">
+              <div class="tl-label">Weeks 1–2 (or 1–4)</div>
+              <p class="tl-title">Build Sprint</p>
+              <p class="tl-desc">Independent work sessions with mentor office hours. Build, test, iterate using AI tools. Weekly check-ins keep you on track.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot">05</div>
+            <div class="tl-body">
+              <div class="tl-label">Final Week</div>
+              <p class="tl-title">Demo &amp; Documentation</p>
+              <p class="tl-desc">Record your public demo video, publish your write-up, and deploy your solution. Live demo session with the cohort.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot">06</div>
+            <div class="tl-body">
+              <div class="tl-label">On Completion</div>
+              <p class="tl-title">Stipend, Certificate &amp; AI Credits</p>
+              <p class="tl-desc">Receive your completion certificate, stipend payout, and AI credits upon verified submission of all deliverables.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="eligibility">
+    <div class="container">
+      <div class="section-title">
+        <h2>Eligibility Requirements</h2>
+        <div class="hint">Open to motivated learners — no engineering background required.</div>
+      </div>
+
+      <div class="elig-grid">
+        <div class="elig-card">
+          <h3>Who Should Apply</h3>
+          <ul>
+            <li>Community members, workforce development participants, or anyone referred through an Escape With Velocity partner</li>
+            <li>Motivated to learn and commit to the program hours (20 or 40 hrs)</li>
+            <li>Have a problem or idea you want to build a solution for</li>
+            <li>Able to attend at least one live virtual session per week</li>
+            <li>Access to a computer with a reliable internet connection</li>
+          </ul>
+        </div>
+        <div class="elig-card">
+          <h3>No Experience Needed In</h3>
+          <ul>
+            <li>Software engineering or coding</li>
+            <li>AI or machine learning</li>
+            <li>Product design or UX</li>
+            <li>Deployment or DevOps</li>
+          </ul>
+          <div class="elig-note">
+            Curiosity and commitment are the only prerequisites. We provide the tools, frameworks, and mentorship — you bring the problem and the drive.
+          </div>
         </div>
       </div>
     </div>
